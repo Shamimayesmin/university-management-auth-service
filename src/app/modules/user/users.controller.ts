@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import usersServices from './users.services'
 
-const createUser = async (res: Response, req: Request) => {
+const createUser = async (req: Request, res: Response) => {
   try {
     const { user } = req.body
     const result = await usersServices.createUser(user)
@@ -18,4 +18,6 @@ const createUser = async (res: Response, req: Request) => {
   }
 }
 
-export default createUser
+export default {
+  createUser,
+}
