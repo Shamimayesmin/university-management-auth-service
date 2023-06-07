@@ -1,0 +1,84 @@
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:42:18.727Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:42:18.736Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:42:58.722Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:42:58.730Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:00.888Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:00.901Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:03.606Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:03.631Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:08.434Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:08.453Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:10.594Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:43:10.609Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:57:21.329Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-04T10:57:21.350Z'
+}

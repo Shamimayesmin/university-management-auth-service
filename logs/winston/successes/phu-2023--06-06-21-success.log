@@ -1,0 +1,24 @@
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-06T15:59:03.148Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-06T15:59:03.169Z'
+}
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-06T15:59:12.665Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-06T15:59:12.684Z'
+}
