@@ -1,7 +1,8 @@
-import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import usersServices from './app/modules/user/users.services'
-import usersRouter from './app/modules/user/users.route'
+import express, { Application } from 'express'
+import globalErrorHandler from './app/middlewares/globalErrorHanders'
+import { UserRouter } from './app/modules/user/user.route'
+
 const app: Application = express()
 
 app.use(cors())
@@ -11,16 +12,16 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Application routes
-app.use('/api/v1/users/', usersRouter)
+// console.log(app.get("env"));
+app.use('/api/v1/users', UserRouter)
 
 // testing
-app.get('/', async (req: Request, res: Response) => {
-  await usersServices.createUser({
-    id: '999',
-    password: '12234',
-    role: 'student',
-  })
-  res.send('Hello World from university management!')
-})
+// app.get('/',  (req: Request, res: Response, next: NextFunction) => {
+//   throw new Error('testing error logger')
+//   // next('there is an error occured')
+// })
+
+// global error handler
+app.use(globalErrorHandler)
 
 export default app
