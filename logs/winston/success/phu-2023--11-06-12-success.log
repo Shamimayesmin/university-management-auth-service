@@ -382,3 +382,15 @@
   label: 'ph',
   timestamp: '2023-06-11T06:57:48.981Z'
 }
+{
+  message: 'Database connected successfully',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-11T06:57:51.946Z'
+}
+{
+  message: 'University management server listening on port 5000',
+  level: 'info',
+  label: 'ph',
+  timestamp: '2023-06-11T06:57:51.957Z'
+}
