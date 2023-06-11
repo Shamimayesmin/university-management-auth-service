@@ -29,4 +29,7 @@ app.use('/api/v1', routes);
 // global error handler
 app.use(globalErrorHandler);
 
+// handle not found
+// app.use((req, res, next))
+
 export default app;
