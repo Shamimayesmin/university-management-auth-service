@@ -29,7 +29,7 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
       enum: academicSemesterCodes,
     },
     startMonth: {
-      type: Schema.Types.String,
+      type: String,
       required: true,
       enum: academicSemesterMonths,
     },
