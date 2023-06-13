@@ -5,6 +5,7 @@ import handleVlidationError from '../../Errors/handleValidationError';
 import config from '../../config';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import handleZodError from '../../Errors/handleZodError';
+import handleCastError from '../../Errors/handleCastError';
 // import { error } from 'winston';
 
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
@@ -19,6 +20,12 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessages = simplefiledError.errorMessages;
   } else if (error instanceof ZodError) {
     const simplefiledError = handleZodError(error);
+    statusCode = simplefiledError.statusCode;
+    message = simplefiledError.message;
+    errorMessages = simplefiledError.errorMessages;
+  } else if (error?.name === 'CastError') {
+    // res.status(200).json({error})
+    const simplefiledError = handleCastError(error);
     statusCode = simplefiledError.statusCode;
     message = simplefiledError.message;
     errorMessages = simplefiledError.errorMessages;
