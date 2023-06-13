@@ -144,6 +144,31 @@
             "date": 1686637406533,
             "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-12-error.log",
             "hash": "25212551f5e4adc0972efd3969c4e1538de99859b98f706aa33f608ee5604352"
+        },
+        {
+            "date": 1686653349549,
+            "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-16-error.log",
+            "hash": "a5c7b410b205e34d3d7a6acbed4b6cea22de3dac501491fa735af02d45ef66c4"
+        },
+        {
+            "date": 1686654315626,
+            "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-17-error.log",
+            "hash": "c6378c95658b105cab9b5ac34284334eb689fa786b0cd09f8cb3d48aa3a11e11"
+        },
+        {
+            "date": 1686660341139,
+            "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-18-error.log",
+            "hash": "7c1fe5800b5591d1c0cda449e5889150bdcf3906bbb159c6e0a1cefd3e3195a1"
+        },
+        {
+            "date": 1686665910015,
+            "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-20-error.log",
+            "hash": "bcd9c0846e4cf819007fafaedd56258f768e4bbb1b65ce99361028fd813ceac1"
+        },
+        {
+            "date": 1686670486865,
+            "name": "D:\\Level-2\\project\\university-management-auth-service\\logs\\winston\\error\\phu-2023--13-06-21-error.log",
+            "hash": "ea6c782658253ca5526b90f3cb603070c9dc93498bf8a6900c11be7e75459c00"
         }
     ],
     "hashType": "sha256"
