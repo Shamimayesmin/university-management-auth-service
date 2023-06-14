@@ -14,8 +14,17 @@ router.post(
 
 router.get('/:id', AcademicSemesterController.getSingleSemester);
 
+router.patch(
+  '/:id',
+  validateRequest(AcademicSemesterValidation.updateAcademicSemesterZodSchema),
+  AcademicSemesterController.updateSemester
+);
+
+router.delete('/:id', AcademicSemesterController.deleteSemester);
 router.get('/', AcademicSemesterController.getAllSemesters);
 
-// router.patch('/',AcademicSemesterController.updateSemester)
-
 export const AcademicSemesterRouter = router;
+
+// Ensure 1 : Route level : Update --> give me title and code both, or neither
+
+// Ensure 2 : Service level : Update ---> mapping title : code
