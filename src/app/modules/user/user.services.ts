@@ -2,12 +2,12 @@ import ApiError from '../../../Errors/ApiError';
 import config from '../../../config/index';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { generateUserId } from './user.utils';
+import { generateFacultyId } from './user.utils';
 
 const createUser = async (user: IUser): Promise<IUser | null> => {
   // auto generated incremental id
 
-  const id = await generateUserId();
+  const id = await generateFacultyId();
   user.id = id;
 
   // deefault password

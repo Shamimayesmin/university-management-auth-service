@@ -6,7 +6,7 @@ export type IGenericErrorResponse = {
   errorMessages: IGenericErrorMessage[];
 };
 
-export type IGemericResponse<T> = {
+export type IGenericResponse<T> = {
   meta: {
     page: number;
     limit: number;
