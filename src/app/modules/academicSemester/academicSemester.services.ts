@@ -1,7 +1,7 @@
 import { SortOrder } from 'mongoose';
 import ApiError from '../../../Errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelpers';
-import { IGemericResponse } from '../../../interfaces/common';
+import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import {
   academicSemesterSearchableFields,
@@ -28,7 +28,7 @@ const createSemester = async (
 const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
-): Promise<IGemericResponse<IAcademicSemester[]>> => {
+): Promise<IGenericResponse<IAcademicSemester[]>> => {
   const { searchTerm, ...filtersData } = filters;
 
   const andConditions = [];
