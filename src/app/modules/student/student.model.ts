@@ -1,9 +1,8 @@
 import { Schema, model } from 'mongoose';
+import { bloodGroup, gender } from './student.constant';
+import { IStudent, StudentModel } from './student.interface';
 
-export const StudentSchema = new Schema<
-  IndexSignatureDeclaration,
-  StudentModel
->(
+export const StudentSchema = new Schema<IStudent, StudentModel>(
   {
     id: {
       type: String,
@@ -32,11 +31,11 @@ export const StudentSchema = new Schema<
     },
     gender: {
       type: String,
-      enum: ['male', 'female'],
+      enum: gender,
     },
     bloodGroup: {
       type: String,
-      enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
+      enum: bloodGroup,
     },
     email: {
       type: String,
@@ -120,7 +119,7 @@ export const StudentSchema = new Schema<
       ref: 'AcademicFaculty',
       required: true,
     },
-    academicDpartment: {
+    academicDepartment: {
       type: Schema.Types.ObjectId,
       ref: 'AcademicDepartment',
       required: true,
@@ -139,7 +138,4 @@ export const StudentSchema = new Schema<
   }
 );
 
-export const Student = model<IndexSignatureDeclaration, StudentModel>(
-  'Student',
-  StudentSchema
-);
+export const Student = model<IStudent, StudentModel>('Student', StudentSchema);
