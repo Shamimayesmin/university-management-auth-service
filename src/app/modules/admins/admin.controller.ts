@@ -7,7 +7,6 @@ import sendResponse from '../../../shared/sendResponse';
 import { adminFilterableFields } from './admin.constant';
 import { IAdmin } from './admin.interface';
 import { AdminService } from './admin.services';
-// import { AdminService } from './admin.service';
 
 const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, adminFilterableFields);
