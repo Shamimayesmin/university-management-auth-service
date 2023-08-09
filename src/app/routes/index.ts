@@ -1,16 +1,17 @@
 import express from 'express';
-import { UserRouter } from '../modules/user/user.route';
+
 import { AcademicSemesterRouter } from '../modules/academicSemester/academicSemester.route';
 import { AcademicFacultyRoutes } from '../modules/academicFaculty/academicFaculty.route';
 import { AcademicDepartmentRoutes } from '../modules/academicDepartment/academicDepartment.route';
 import { StudentRouter } from '../modules/student/student.route';
+import { UserRoutes } from '../modules/user/user.route';
 
 const router = express.Router();
 
 const moduleRoutes = [
   {
     path: '/users',
-    route: UserRouter,
+    route: UserRoutes,
   },
   {
     path: '/academic-semesters',

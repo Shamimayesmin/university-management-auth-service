@@ -1,10 +1,9 @@
 import { SortOrder } from 'mongoose';
-// import ApiError from '../../../Errors/ApiError';
+
 import { paginationHelpers } from '../../../helpers/paginationHelpers';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 
-// import httpStatus from 'http-status';
 import { IStudent, IStudentFilters } from './student.interface';
 import { studentSearchableFields } from './student.constant';
 import { Student } from './student.model';
@@ -97,6 +96,7 @@ const updateStudent = async (
   if (name && Object.keys(name).length > 0) {
     Object.keys(name).forEach(key => {
       const nameKey = `name.${key}`;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (updateStudentData as any)[nameKey] = name[key as keyof typeof name];
     });
   }
@@ -104,6 +104,7 @@ const updateStudent = async (
   if (guardian && Object.keys(guardian).length > 0) {
     Object.keys(guardian).forEach(key => {
       const nameKey = `guardiam.${key}`;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (updateStudentData as any)[nameKey] =
         guardian[key as keyof typeof guardian];
       // updateStudentData ['updatedStudentData['guardian.motherContactNo]
@@ -113,6 +114,7 @@ const updateStudent = async (
   if (localGuardian && Object.keys(localGuardian).length > 0) {
     Object.keys(localGuardian).forEach(key => {
       const nameKey = `guardiam.${key}`;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (updateStudentData as any)[nameKey] =
         localGuardian[key as keyof typeof localGuardian];
     });
