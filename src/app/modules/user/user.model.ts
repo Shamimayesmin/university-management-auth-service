@@ -2,15 +2,10 @@
 import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
 import config from '../../../config';
-import { IUser, IUserMethods, UserModel } from './user.interface';
+import { IUser, UserModel } from './user.interface';
 
 // eslint-disable-next-line no-undef
-const UserSchema = new Schema<
-  IUser,
-  Record<string, never>,
-  UserModel,
-  IUserMethods
->(
+const UserSchema = new Schema<IUser, Record<string, never>, UserModel>(
   {
     id: {
       type: String,
@@ -54,6 +49,7 @@ const UserSchema = new Schema<
   }
 );
 
+// statics methods
 UserSchema.statics.isUserExist = async function (
   id: string
 ): Promise<IUser | null> {
@@ -95,22 +91,22 @@ UserSchema.pre('save', async function (next) {
 
 export const User = model<IUser, UserModel>('User', UserSchema);
 
-// check user exist
-UserSchema.methods.isUserExist = async function (
-  id: string
-): Promise<Partial<IUser> | null> {
-  return await User.findOne(
-    { id },
-    { id: 1, password: 1, needsPasswordChange: 1 }
-  );
-};
+// instance methods
+// UserSchema.methods.isUserExist = async function (
+//   id: string
+// ): Promise<Partial<IUser> | null> {
+//   return await User.findOne(
+//     { id },
+//     { id: 1, password: 1, needsPasswordChange: 1 }
+//   );
+// };
 
 // match password
-UserSchema.methods.isPasswordMatched = async function (
-  givenPassword: string,
-  savedPassword: string
-): Promise<boolean> {
-  const isMatched = await bcrypt.compare(givenPassword, savedPassword);
+// UserSchema.methods.isPasswordMatched = async function (
+//   givenPassword: string,
+//   savedPassword: string
+// ): Promise<boolean> {
+//   const isMatched = await bcrypt.compare(givenPassword, savedPassword);
 
-  return isMatched;
-};
+//   return isMatched;
+// };
