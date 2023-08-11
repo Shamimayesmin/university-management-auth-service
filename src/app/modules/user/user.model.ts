@@ -2,10 +2,15 @@
 import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
 import config from '../../../config';
-import { IUser, UserModel } from './user.interface';
+import { IUser, IUserMethods, UserModel } from './user.interface';
 
 // eslint-disable-next-line no-undef
-const UserSchema = new Schema<IUser, UserModel>(
+const UserSchema = new Schema<
+  IUser,
+  Record<string, never>,
+  UserModel,
+  IUserMethods
+>(
   {
     id: {
       type: String,
@@ -90,18 +95,22 @@ UserSchema.pre('save', async function (next) {
 
 export const User = model<IUser, UserModel>('User', UserSchema);
 
-// UserSchema.methods.isUserExist = async function (
-//   id: string
-// ): Promise<Partial<IUser> | null> {
-//   return await User.findOne(
-//     { id },
-//     { id: 1, password: 1, needsPasswordChange: 1 }
-//   );
-// };
+// check user exist
+UserSchema.methods.isUserExist = async function (
+  id: string
+): Promise<Partial<IUser> | null> {
+  return await User.findOne(
+    { id },
+    { id: 1, password: 1, needsPasswordChange: 1 }
+  );
+};
 
-// UserSchema.methods.isPasswordMatched = async function (
-//   givenPassword: string,
-//   savedPassword: string
-// ): Promise<boolean> {
-//   return await bcrypt.compare(givenPassword, savedPassword);
-// };
+// match password
+UserSchema.methods.isPasswordMatched = async function (
+  givenPassword: string,
+  savedPassword: string
+): Promise<boolean> {
+  const isMatched = await bcrypt.compare(givenPassword, savedPassword);
+
+  return isMatched;
+};
