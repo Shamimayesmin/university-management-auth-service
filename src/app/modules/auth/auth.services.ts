@@ -4,13 +4,12 @@ import ApiError from '../../../Errors/ApiError';
 import { User } from '../user/user.model';
 import { ILogingUser } from './auth.interface';
 
+import { Secret } from 'jsonwebtoken';
+import config from '../../../config';
+import { jwtHelpers } from '../../../helpers/jwtHelpers';
+
 const loginUser = async (payload: ILogingUser) => {
   const { id, password } = payload;
-
-  // creating instance of user
-  //   const user = new User();
-  // access to our instance methods
-  //   const isUserExist = await user.isUserExist(id);
 
   const isUserExist = await User.isUserExist(id);
 
@@ -25,11 +24,27 @@ const loginUser = async (payload: ILogingUser) => {
     !(await User.isPasswordMatched(password, isUserExist?.password))
   ) {
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Password is incorrect');
-
-    // create access to get
   }
 
-  return {};
+  // create access token & refresh token
+  const { id: userId, role, needsPasswordChange } = isUserExist;
+  const accessToken = jwtHelpers.createToken(
+    { userId, role },
+    config.jwt.secret as Secret,
+    config.jwt.expires_in as string
+  );
+
+  const refreshToken = jwtHelpers.createToken(
+    { userId, role },
+    config.jwt.refresh_secret as Secret,
+    config.jwt.refresh_expires_in as string
+  );
+
+  return {
+    accessToken,
+    refreshToken,
+    needsPasswordChange,
+  };
 };
 
 export const AuthService = {
