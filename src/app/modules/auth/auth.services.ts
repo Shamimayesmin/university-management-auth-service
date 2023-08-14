@@ -2,13 +2,13 @@ import httpStatus from 'http-status';
 import ApiError from '../../../Errors/ApiError';
 
 import { User } from '../user/user.model';
-import { ILogingUser } from './auth.interface';
+import { ILoginUserResponse, ILogingUser } from './auth.interface';
 
 import { Secret } from 'jsonwebtoken';
 import config from '../../../config';
 import { jwtHelpers } from '../../../helpers/jwtHelpers';
 
-const loginUser = async (payload: ILogingUser) => {
+const loginUser = async (payload: ILogingUser): Promise<ILoginUserResponse> => {
   const { id, password } = payload;
 
   const isUserExist = await User.isUserExist(id);
