@@ -5,12 +5,12 @@ import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import config from '../../config';
 
 import { ZodError } from 'zod';
+import ApiError from '../../Errors/ApiError';
+import handleCastError from '../../Errors/handleCastError';
+import handleValidationError from '../../Errors/handleValidationError';
+import handleZodError from '../../Errors/handleZodError';
 import { IGenericErrorMessage } from '../../interfaces/error';
 import { errorlogger } from '../../shared/logger';
-import ApiError from '../../Errors/ApiError';
-import handleValidationError from '../../Errors/handleValidationError';
-import handleCastError from '../../Errors/handleCastError';
-import handleZodError from '../../Errors/handleZodError';
 
 const globalErrorHandler: ErrorRequestHandler = (
   error,
