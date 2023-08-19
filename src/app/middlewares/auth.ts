@@ -4,6 +4,7 @@ import { Secret } from 'jsonwebtoken';
 import config from '../../config';
 import { jwtHelpers } from '../../helpers/jwtHelpers';
 import ApiError from '../../Errors/ApiError';
+// import { ENUM_USER_ROLE } from '../../enums/user';
 
 const auth =
   (...requiredRoles: string[]) =>
@@ -18,6 +19,8 @@ const auth =
       let verifiedUser = null;
 
       verifiedUser = jwtHelpers.verifyToken(token, config.jwt.secret as Secret);
+
+      req.user = verifiedUser;
 
       //role diye guard korar jnno
       if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {
