@@ -101,6 +101,10 @@ const changePassword = async (
   // checking is user exist
   const isUserExist = await User.isUserExist(user?.userId);
 
+  // alternative way
+  // const isUserExist = await User.findOne({id:user?.userId}).select('+password');
+  // console.log(isUserExist);
+
   if (!isUserExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
   }
@@ -119,7 +123,7 @@ const changePassword = async (
     Number(config.bycrypt_salt_rounds)
   );
 
-  // update password
+  //update password
   const query = { id: user?.userId };
   const updatedData = {
     password: newHashPassword,
@@ -127,6 +131,12 @@ const changePassword = async (
     passwordChangedAt: new Date(),
   };
   await User.findOneAndUpdate(query, updatedData);
+
+  // data update
+  // isUserExist.needsPasswordChange=false
+
+  // updating using save()
+  // isUserExist.save()
 };
 
 export const AuthService = {
